@@ -1,3 +1,17 @@
 @{
-  Layout = "_Layout"
+  Layout = "_Layout";
+}
+
+@if(User.Identity.IsAuthenticated)
+{
+  <h2>Hello, @User.Identity.Name!</h2>
+  @Html.ActionLink("Add Treats", "Create", "Treats", null, new{@class="btn btn-primary"})
+  <br>
+  @Html.ActionLink("Add Flavors", "Create", "Flavors", null, new{@class="btn btn-primary"})
+} 
+else
+{
+  @Html.ActionLink("Register", "Register", "Account", null, new{@class="btn btn-primary"})
+  <br>
+  @Html.ActionLink("Log in", "Login", "Account", null, new{@class="btn btn-primary"})
 }

@@ -1,3 +1,19 @@
 @{
-  Layout = "_Layout"
+  Layout = "_Layout";
+}
+
+@using CandyShop.ViewModels
+@model LoginViewModel
+
+<h2>Login</h2>
+<hr />
+@using (Html.BeginForm())
+{
+  @Html.Raw("User Name:")
+  @Html.TextBoxFor(m => m.UserName, new{placeholder="Username"})
+  <br>
+  @Html.Raw("Password:")
+  @Html.PasswordFor(m => m.Password, new{placeholder="Password"})
+  <br>
+  <input type="submit" value="Login" class="btn btn-primary" />
 }
