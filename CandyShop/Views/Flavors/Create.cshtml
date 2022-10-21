@@ -1,3 +1,24 @@
 @{
   Layout = "_Layout";
 }
+
+@model CandyShop.Models.Flavor
+
+<h4>Add a new Flavor</h4>
+@using (Html.BeginForm())
+{
+  @Html.Raw("Flavor Name:")
+  @Html.EditorFor(m => m.FlavorName)
+  <br>
+  @Html.Raw("Flavor Description:")
+  @Html.EditorFor(m => m.FlavorDescription)
+  <br>
+  @Html.Raw("Flavor Cost:")
+  @Html.EditorFor(m => m.FlavorCost)
+  <br>
+  @Html.Raw("Flavor Color:")
+  @Html.EditorFor(m => m.FlavorColor)
+  <br>
+  <input type="submit" value="Save New Flavor" class="btn btn-primary" />
+  @Html.ActionLink("Cancel", "Index", "Flavors", null, new {@class="btn btn-primary"})
+}
