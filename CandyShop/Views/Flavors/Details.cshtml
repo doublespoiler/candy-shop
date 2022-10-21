@@ -21,10 +21,17 @@ else
     @foreach(var join in Model.JoinEntities)
     {
       <li>
-        @Html.ActionLink($"{@join.Treat.TreatName}", "Details", "Treats", new{ id=@join.Treat.TreatName }, new{@class="btn btn-primary"})
-        @Html.ActionLink("Remove", "DeleteJoin", "Treats", new{ id = @join.TreatFlavorId })
+        @Html.ActionLink($"{@join.Treat.TreatName}", "Details", "Treats", new{ id=@join.Treat.TreatId})
+        @if(User.Identity.IsAuthenticated)
+        {
+          @Html.ActionLink("Remove", "Remove", new{ id = @join.TreatFlavorId }, new{@class="btn btn-primary"})
+        }
+        
       </li>
     }
   </ul>
 }
-@Html.ActionLink("Add Treat", "AddTreat", "Flavors", new{id=@Model.FlavorId}, new{@class="btn btn-primary"})
+@if(User.Identity.IsAuthenticated)
+{
+  @Html.ActionLink("Add Treat", "AddTreat", "Flavors", new{id=@Model.FlavorId}, new{@class="btn btn-primary"})
+}

@@ -1,0 +1,26 @@
+@{
+  Layout = "_Layout";
+}
+
+@model CandyShop.Models.TreatFlavor
+
+<h2>Are you sure you want to Remove this Treat from this Flavor?</h2>
+
+
+<table>
+  <tr>
+    <td>@Html.Label("Flavor Name: ")</td> 
+    <td>@Html.DisplayFor(model => model.Flavor.FlavorName)</td>
+  </tr>
+    <tr>
+    <td>@Html.Label("Treat Name: ")</td> 
+    <td>@Html.DisplayFor(model => model.Treat.TreatName)</td>
+  </tr>
+</table>
+
+@using (Html.BeginForm())
+{
+  <input type="submit" value="Remove" class="btn btn-primary"/>
+}
+
+@Html.ActionLink("Cancel", "Details", null, new { id = Model.FlavorId }, new { @class = "btn btn-primary"})

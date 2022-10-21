@@ -25,3 +25,7 @@ else
     }
   </ul>
 }
+@if(User.Identity.IsAuthenticated)
+{
+  @Html.ActionLink("New Flavor", "Create", "Flavors", null, new{ @class="btn btn-primary"})
+}
