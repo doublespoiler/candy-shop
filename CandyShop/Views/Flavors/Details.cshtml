@@ -1,3 +1,30 @@
 @{
   Layout = "_Layout";
 }
+
+@model CandyShop.Models.Flavor
+
+<h2>@Html.Raw("Details for: ") @Html.DisplayFor(m => m.FlavorName)</h2>
+<hr />
+
+<h4>Treats with this flavor:</h4>
+
+
+@if(@Model.JoinEntities.Count == 0)
+{
+  <p>There are no treats with this flavor.</p>
+}
+else
+{
+  
+  <ul>
+    @foreach(var join in Model.JoinEntities)
+    {
+      <li>
+        @Html.ActionLink($"{@join.Treat.TreatName}", "Details", "Treats", new{ id=@join.Treat.TreatName }, new{@class="btn btn-primary"})
+        @Html.ActionLink("Remove", "DeleteJoin", "Treats", new{ id = @join.TreatFlavorId })
+      </li>
+    }
+  </ul>
+}
+@Html.ActionLink("Add Treat", "AddTreat", "Flavors", new{id=@Model.FlavorId}, new{@class="btn btn-primary"})
