@@ -24,7 +24,7 @@ namespace CandyShop.Controllers
     }
 
     [AllowAnonymous]
-    public async Task<ActionResult> Index()
+    public ActionResult Index()
     {
       List<Treat> model = _db.Treats.ToList();
       return View(model);
@@ -37,7 +37,7 @@ namespace CandyShop.Controllers
     }
 
     [HttpPost]
-    public async Task<ActionResult> Create(Treat treat)
+    public ActionResult Create(Treat treat)
     {
       _db.Treats.Add(treat);
       _db.SaveChanges();
