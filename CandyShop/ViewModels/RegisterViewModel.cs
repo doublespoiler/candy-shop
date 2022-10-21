@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Library.ViewModels
+namespace CandyShop.ViewModels
 {
   public class RegisterViewModel
   {

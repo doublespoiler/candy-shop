@@ -1,3 +1,22 @@
 @{
-  Layout = "_Layout"
+  Layout = "_Layout";
+}
+
+@using CandyShop.ViewModels
+@model RegisterViewModel
+
+<h2>Register New User</h2>
+<hr />
+@using (Html.BeginForm("Register", "Account", FormMethod.Post))
+{
+  @Html.LabelFor(user => user.UserName)
+  @html.EditorFor(user => user.UserName)
+  
+    @Html.LabelFor(user=> user.Password)
+    @Html.PasswordFor(user=> user.Password)
+
+    @Html.LabelFor(user=> user.ConfirmPassword)
+    @Html.PasswordFor(user=> user.ConfirmPassword)
+
+    <input type="submit" value="Register" class="btn btn-primary"/>
 }

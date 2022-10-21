@@ -8,11 +8,11 @@ namespace CandyShop.Controllers
 {
   public class AccountController : Controller
   {
-    private readonly ToDoListContext _db;
+    private readonly CandyShopContext _db;
     private readonly UserManager<ApplicationUser> _userManager;
     private readonly SignInManager<ApplicationUser> _signInManager;
 
-    public AccountController (UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, ToDoListContext db)
+    public AccountController (UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, CandyShopContext db)
     {
       _userManager = userManager;
       _signInManager = signInManager;
@@ -52,7 +52,7 @@ namespace CandyShop.Controllers
     [HttpPost]
     public async Task<ActionResult> Login(LoginViewModel model)
     {
-      Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, isPersistent: true, lockoutOnFailure: false);
+      Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager.PasswordSignInAsync(model.UserName, model.Password, isPersistent: true, lockoutOnFailure: false);
       if (result.Succeeded)
       {
         return RedirectToAction("Index");

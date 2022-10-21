@@ -1,7 +1,7 @@
-namespace TreatFlavor.Models
+namespace CandyShop.Models
 {
   public class TreatFlavor
-  {       
+  {
     public int TreatFlavorId { get; set; }
     public int TreatId { get; set; }
     public int FlavorId { get; set; }
