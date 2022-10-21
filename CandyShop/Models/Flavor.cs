@@ -16,7 +16,7 @@ namespace CandyShop.Models
     public string FlavorName { get; set; }
     public string FlavorDescription { get; set; }
     public int FlavorCost { get; set; }
-    public int FlavorColor { get; set; }
+    public string FlavorColor { get; set; }
     public virtual ICollection<TreatFlavor> JoinEntities { get; }
   }
 }
