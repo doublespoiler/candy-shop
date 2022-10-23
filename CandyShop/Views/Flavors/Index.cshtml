@@ -16,10 +16,10 @@ else
     @foreach(Flavor flavor in Model)
     {
       <li>
-        @Html.ActionLink($"{flavor.FlavorName}", "Details", new { id = flavor.FlavorId})
+        @Html.ActionLink($"{flavor.FlavorName}", "Details", new { id = flavor.FlavorId })
         @if(User.Identity.IsAuthenticated)
         {
-          @Html.ActionLink("Delete", "Delete", "Flavors", new { id = flavor.FlavorId }, new { @class="btn btn-primary"})
+          @Html.ActionLink("Delete", "Delete", "Flavors", new { id = flavor.FlavorId }, new { @class="btn btn-primary" })
         }
       </li>
     }
@@ -27,5 +27,5 @@ else
 }
 @if(User.Identity.IsAuthenticated)
 {
-  @Html.ActionLink("New Flavor", "Create", "Flavors", null, new{ @class="btn btn-primary"})
+  @Html.ActionLink("New Flavor", "Create", "Flavors", null, new{ @class="btn btn-primary" })
 }

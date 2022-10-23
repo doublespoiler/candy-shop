@@ -2,21 +2,20 @@
   @using (Html.BeginForm("LogOff", "Account"))
   {
     @Html.ActionLink("All Flavors", "Index", "Flavors", null, new{@class="btn btn-link headbtn"}) <span> | </span>
-    @Html.ActionLink("All Treats", "Index", "Treats", null, new{@class="btn btn-link headbtn"})
+    @Html.ActionLink("All Treats", "Index", "Treats", null, new{@class="btn btn-link headbtn"}) <span> | </span>
   
     @if (User.Identity.IsAuthenticated)
     {
-      <span> | </span>@Html.ActionLink("Add Flavor", "Create", "Flavors", null, new{@class="btn btn-link headbtn"}) <span> | </span>
-
-      @Html.ActionLink("Add Treat", "Create", "Treats", null, new{@class="btn btn-link headbtn"})<span> | </span>
-
+      @Html.ActionLink("Add Flavor", "Create", "Flavors", null, new{ @class="btn btn-link headbtn" }) <span> | </span>
+      @Html.ActionLink("Add Treat", "Create", "Treats", null, new{ @class="btn btn-link headbtn" })<span> | </span>
+      @Html.ActionLink("Account", "Index", "Account", null, new{ @class="btn btn-primary headbtn" })
       <input type="submit" value="Log out" class="btn btn-link" /> 
-      }
+    }
     
     else
     {
-      <span> | </span>@Html.ActionLink("Register", "Register", "Account", null, new {@class="btn btn-link headbtn"})<span> |</span>
-      @Html.ActionLink("Log in", "Login", "Account", null, new {@class="btn btn-link headbtn"})<span></span>
+      @Html.ActionLink("Register", "Register", "Account", null, new { @class="btn btn-link headbtn" })<span> |</span>
+      @Html.ActionLink("Log in", "Login", "Account", null, new { @class="btn btn-link headbtn" })
     }
   }
 </div>

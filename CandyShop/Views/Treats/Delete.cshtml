@@ -1,3 +1,19 @@
 @{
   Layout = "_Layout";
 }
+
+@model CandyShop.Models.Treat
+
+<h2>Are you sure you want to delete this flavor?</h2>
+
+@Html.DisplayNameFor(m => m.TreatName): @Html.DisplayFor(m => m.TreatName)
+<br>
+@Html.DisplayNameFor(m => m.TreatDescription): @Html.DisplayFor(m => m.TreatDescription)
+<br>
+@Html.DisplayNameFor(m => m.TreatCost): @Html.DisplayFor(m => m.TreatCost)
+
+@using(Html.BeginForm())
+{
+  <input type="submit" value="Delete" class="btn btn-primary" />
+}
+@Html.ActionLink("Cancel", "Index", "Treats", null, new{ @class="btn btn-primary" })

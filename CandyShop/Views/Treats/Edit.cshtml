@@ -1,3 +1,20 @@
 @{
   Layout = "_Layout";
 }
+
+@model CandyShop.Models.Treat
+
+<h2>Edit: @Html.DisplayFor(m => m.TreatName)</h2>
+@using(Html.BeginForm())
+{
+  @Html.HiddenFor(m => m.TreatId)
+
+  @Html.LabelFor(m => m.TreatName)<span>: </span> @Html.EditorFor(m => m.TreatName)
+  <br>
+  @Html.LabelFor(m => m.TreatDescription)<span>: </span> @Html.EditorFor(m => m.TreatDescription)
+  <br>
+  @Html.LabelFor(m => m.TreatCost)<span>: </span> @Html.EditorFor(m => m.TreatCost)
+  <br>
+  <input type="submit" value="Save" class="btn btn-primary" />
+}
+@Html.ActionLink("Cancel", "Details", "Treats", new{ id = @Model.TreatId}, new{ @class="btn btn-primary" })

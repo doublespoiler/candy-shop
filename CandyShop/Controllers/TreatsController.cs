@@ -6,8 +6,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
-using System.Threading.Tasks;
-using System.Security.Claims;
 
 namespace CandyShop.Controllers
 {
@@ -81,7 +79,7 @@ namespace CandyShop.Controllers
     {
       if (FlavorId != 0)
       {
-      _db.TreatFlavor.Add(new TreatFlavor() { FlavorId = FlavorId, TreatId = treat.TreatId });
+        _db.TreatFlavor.Add(new TreatFlavor() { FlavorId = FlavorId, TreatId = treat.TreatId });
       }
       _db.SaveChanges();
       return RedirectToAction("Index");
@@ -97,18 +95,32 @@ namespace CandyShop.Controllers
     public ActionResult DeleteConfirmed(int id)
     {
       var thisTreat = _db.Treats.FirstOrDefault(treat => treat.TreatId == id);
+      List<TreatFlavor> thisTreatJoins = _db.TreatFlavor.ToList();
+      foreach(TreatFlavor tf in thisTreatJoins)
+      {
+        if(tf.TreatId == id)
+        {
+          _db.TreatFlavor.Remove(tf);
+        }
+      }
       _db.Treats.Remove(thisTreat);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
 
-    [HttpPost]
-    public ActionResult DeleteFlavor(int joinId)
+    public ActionResult Remove(int id)
     {
-      var joinEntry = _db.TreatFlavor.FirstOrDefault(entry => entry.TreatFlavorId == joinId);
-      _db.TreatFlavor.Remove(joinEntry);
+      var thisJoin = _db.TreatFlavor.FirstOrDefault(treatflavor => treatflavor.TreatFlavorId == id);
+      return View(thisJoin);
+    }
+
+    [HttpPost, ActionName("Remove")]
+    public ActionResult RemoveConfirm(int id)
+    {
+      var thisJoin = _db.TreatFlavor.FirstOrDefault(treatflavor => treatflavor.TreatFlavorId == id);
+      _db.TreatFlavor.Remove(thisJoin);
       _db.SaveChanges();
-      return RedirectToAction("Index");
+      return RedirectToAction("Details", new{ id = thisJoin.TreatId});
     }
   }
 }

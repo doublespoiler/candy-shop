@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>CandyShop</title>
+  <title>Pierre's Candy Shop</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   <link rel="stylesheet" href="~/css/splash.css">
   <link rel="stylesheet" href="~/css/styles.css">
@@ -12,9 +12,11 @@
     <div id="header"></div>
     <div id="renderbody">
       <div class="jumbotron">
-        <h1>CandyShop</h1>
-        <p>@Html.ActionLink("Login", "Login", "Account")</p>
-        <p>@Html.ActionLink("Register", "Register", "Account")</p>
+        <h1>Welcome to Pierre's Candy Shop!</h1>
+        <p>@Html.ActionLink("View All Treats", "Index", "Treats", null, new{ @class="btn btn-primary" })</p>
+        <p>@Html.ActionLink("View All Flavors", "Index", "Flavors", null, new{ @class="btn btn-primary" })</p>
+        <p>@Html.ActionLink("Login", "Login", "Account", null, new{ @class="btn btn-primary" })</p>
+        <p>@Html.ActionLink("Register", "Register", "Account", null, new{ @class="btn btn-primary" })</p>
         <span id= "clock"></span>
       </div>
     </div>

@@ -1,3 +1,21 @@
 @{
   Layout = "_Layout";
 }
+
+@model CandyShop.Models.Treat
+
+<h4>Add a new Treat</h4>
+@using (Html.BeginForm())
+{
+  @Html.Raw("Treat Name:")
+  @Html.EditorFor(m => m.TreatName)
+  <br>
+  @Html.Raw("Treat Description:")
+  @Html.EditorFor(m => m.TreatDescription)
+  <br>
+  @Html.Raw("Treat Cost:")
+  @Html.EditorFor(m => m.TreatCost)
+  <br>
+  <input type="submit" value="Save New Treat" class="btn btn-primary" />
+  @Html.ActionLink("Cancel", "Index", "Treats", null, new{ @class="btn btn-primary" })
+}

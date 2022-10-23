@@ -11,6 +11,10 @@
 } 
 else
 {
+  @Html.ActionLink("View All Treats", "Index", "Treats", null, new{@class="btn btn-primary"})
+  <br>
+  @Html.ActionLink("View All Flavors", "Index", "Flavors", null, new{@class="btn btn-primary"})
+  <br>
   @Html.ActionLink("Register", "Register", "Account", null, new{@class="btn btn-primary"})
   <br>
   @Html.ActionLink("Log in", "Login", "Account", null, new{@class="btn btn-primary"})
