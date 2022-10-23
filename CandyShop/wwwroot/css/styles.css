@@ -1,10 +1,11 @@
-.headbtn:visited, .headbtn, .headbtn:hover, .btn-link, .btn-link:visited, .btn-link:hover {
-  color:white;
-  text-decoration: none;
-}
 
 ul{
   list-style: none;
+}
+
+.headbtn:visited, .headbtn, .headbtn:hover, .btn-link, .btn-link:visited, .btn-link:hover {
+  color:white;
+  text-decoration: none;
 }
 
 #bodycontent{
